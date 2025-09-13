@@ -27,8 +27,6 @@ computerFistIcon = "🤛";
 
 randomChoice = [rockIcon, paperIcon, scissorsIcon];
 
-
-
 startBtn.addEventListener("click", () => {
   if (!gameStarted) {
     // start game
@@ -41,12 +39,16 @@ startBtn.addEventListener("click", () => {
 
     round = 0;
     totalRounds = 10;
-    
+
     steps.forEach((step) => step.classList.remove("active"));
   } else {
     // Restart game: reset scores and result
     round = 0;
-    
+
+    rockBtn.disabled = false;
+    paperBtn.disabled = false;
+    scissorsBtn.disabled = false;
+
     userScore.innerText = 0;
     computerScore.innerText = 0;
     handIcon.innerText = userFistIcon;
@@ -108,9 +110,8 @@ function calculateResult(userSelection, winningIcon) {
     }
   }, 1500);
 
-
-  if(round === totalRounds){
-    rockBtn.disabled =true;
+  if (round === totalRounds) {
+    rockBtn.disabled = true;
     paperBtn.disabled = true;
     scissorsBtn.disabled = true;
 
@@ -118,16 +119,13 @@ function calculateResult(userSelection, winningIcon) {
     const computer = +computerScore.innerText;
 
     if (user > computer) {
-        alert("You Won the Game 🥳");
+      alert("You Won the Game 🥳");
     } else if (user < computer) {
-        alert("You Lost the Game 😔");
+      alert("You Lost the Game 😔");
     } else {
-        alert("Game Draw!");
+      alert("Game Draw!");
     }
-}
+  }
 }
 
 // End Result
-
-
-
