@@ -1,0 +1,159 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+  gap: 8px;
+  padding: 4px;
+}
+
+select,
+input[type="text"],
+button {
+  font: inherit;
+  padding: 8px;
+}
+
+.toasts-container {
+  position: absolute;
+  top: 1rem;
+  left: 0rem;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  margin: 16px;
+  
+}
+
+.toast {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: aliceblue;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+  animation: fromLeft 0.5s ease-in;
+}
+
+.toast.to-left{
+  animation: toLeft 0.5s ease-out forwards;
+}
+
+.toasts-container.right .toast{
+  animation: fromRight 0.5s ease-in;
+}
+
+.toasts-container.right .toast.to-right{
+  animation: toRight 0.5s ease-out forwards;
+}
+
+@keyframes fromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toLeft {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-100%);
+    opacity: 0;
+  }
+  
+}
+
+@keyframes fromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toRight {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100%);
+    opacity: 0;
+  }
+  
+}
+
+
+.toasts-container.right {
+  left: auto;
+  right: 0rem;
+}
+
+.toasts-container.bottom {
+  top: auto;
+  bottom: 1rem;
+}
+
+.toast.success {
+  background-color: #009600;
+}
+
+.toast.error {
+  background-color: #ff0000;
+}
+
+.toast.warning {
+  background-color: #ec6b03;
+}
+
+.toast.info {
+  background-color: #4e4e4e;
+}
+
+.toast.success::before {
+  content: "✓";
+}
+
+.toast.error::before {
+  content: "✗";
+}
+
+.toast.warning::before {
+  content: "⚠";
+}
+
+.toast.info::before {
+  content: "ⓘ";
+}
+
+.toast span {
+  cursor: pointer;
+}
+
+.duration-container {
+  display: flex;
+}
+
+#duration {
+  flex-grow: 1;
+}
