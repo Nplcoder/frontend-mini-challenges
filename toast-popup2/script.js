@@ -38,6 +38,7 @@ removeToast.addEventListener('click', () => {
     closeIcon()
 })
 
+
 setTimeout(() => {
     closeIcon()
 }, parseInt(duration.value) * 1000)
