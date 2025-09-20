@@ -1,0 +1,41 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+main{
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+input{
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+
+.text-tansform{
+    background-color: antiquewhite;
+    padding: 16px;
+    position: relative;
+    text-align: left;
+    margin: 1.5rem 0;
+}
+
+.text-tansform label{
+    position: absolute;
+    color: aliceblue;
+    background-color: black;
+    top:-16px;
+    left: 16px;
+    padding: 4px 8px;
+    border-radius: 8px;
+}
+.text-tansform span{
+    text-align: right;
+}
