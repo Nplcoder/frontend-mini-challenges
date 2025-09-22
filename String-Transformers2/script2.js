@@ -23,17 +23,27 @@ function camelCase(str){
     return finalArray.join('')
 }
     
+function pascalCapitalize(str){
+    const capitalize = str[0].toUpperCase() + str.slice(1)
+    return capitalize
+}
 
-console.log(camelCase('this is a normal sentence to transform'))
+function pascalCase(str){
+    const wordsArray = str.trim().toLocaleLowerCase().split(' ')
+    const finalPascalArray = wordsArray.map((word) => {
+        return pascalCapitalize(word)
+    } )
 
-
+    return finalPascalArray.join('')
+}
+// console.log(pascalCase('this is a normal sentence to transform'))
 
 function textOutput(){
 
     lowercaseOutput.innerText = input.value.trim().toLocaleLowerCase()
     uppercaseOutput.innerText = input.value.trim().toUpperCase()
     camelcaseOutput.innerText = camelCase(input.value)
-
+    pascalcaseOutput.innerText = pascalCase(input.value)
 
 
 }
