@@ -1,11 +1,15 @@
 const cart = ['shoes', 'pants', 'kurta'];
 
-const promise = createOrder(cart); //orderId
-console.log(promise)
-
-promise.then(function (orderId){
+createOrder(cart)
+.then(function (orderId){
     console.log(orderId);
     //proceedToPayment(orderId)
+})
+.then(function(){
+    proceedToPayment(orderId)
+})
+.catch(function (err){
+    console.log(err.message)
 });
 
 //producer
@@ -30,6 +34,12 @@ function createOrder(cart) {
         }
     )
     return pr;
+}
+
+function proceedToPayment(orderId){
+return new Promise(function(resolve, reject){
+    resolve('payment Successful')
+})
 }
 
 function validateCart(cart){
